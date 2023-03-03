@@ -1,38 +1,29 @@
+#include "main.h"
 /**
- * _strncpy - A method that cp a string.
+ * _strncpy - copy a string
+ * @dest: input value
+ * @src: input value
+ * @n: input value
  *
- * @dest: pointer output
- *
- * @src: pointer to input to be concat
- *
- * @n: byte size of src
- *
- * Return: dest as usual
-*/
-
+ * Return: dest
+ */
 char *_strncpy(char *dest, char *src, int n)
 {
-	int y;
+	int j;
 
-	/**
-	 * iterate through src
-	 * where if there is no null byte
-	 * among the first n bytes of source
-	 * the string placed in dest will not be
-	 * null terminated
-	*/
-	for (y = 0; y < n && src[y] != '\0'; y++)
-		dest[y] = src[y];
-	/**
-	 * if the length of source is less than n
-	 * write additional nullbytes to dest to
-	 * ensure that a total of n bytes is written
-	*/
-	while (y < n)
+	j = 0;
+	while (j < n && src[j] != '\0')
 	{
-		dest[y] = '\0';
-		y++;
+		dest[j] = src[j];
+		j++;
+	}
+	while (j < n)
+	{
+		dest[j] = '\0';
+		j++;
 	}
 
 	return (dest);
 }
+
+
